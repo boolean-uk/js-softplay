@@ -10,8 +10,8 @@ let children = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
-function enter (numChildren, numAdults) {
-  if (numChildren > numAdults) {
+function enter (numAdults, numChildren, ) {
+  if (numChildren+children > numAdults+adults) {
     return false
   }
   adults += numAdults
@@ -19,8 +19,17 @@ function enter (numChildren, numAdults) {
   return true
 }
 
-function leave (numChildren, numAdults) {
-
+function leave (numAdults, numChildren) {
+  if (numAdults > numChildren) {
+    adults -= numAdults
+    children -= numChildren
+    if (adults < children){
+    adults += numAdults
+    children += numChildren
+    return false}
+    return true
+    }
+    return false
 }
 
 function occupancy () {
