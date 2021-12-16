@@ -86,6 +86,8 @@ describe("Soft Play", () => {
     enter(1,1)
     enter(2,1)
     enter(8,6)
+    leave(2,2)
+    expect(occupancy()).toEqual({adults: 9, children: 6})
     expect(total()).toEqual({adults: 11, children: 8})
   })
 
