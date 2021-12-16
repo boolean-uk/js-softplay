@@ -1,4 +1,4 @@
-const {enter, leave, occupancy, reset} = require('../src/soft-play.js')
+const {enter, leave, occupancy, reset, total,} = require('../src/soft-play.js')
 
 describe("Soft Play", () => {  
   
@@ -80,5 +80,15 @@ describe("Soft Play", () => {
     expect(leave(2,2)).toBeFalse()
     expect(occupancy()).toEqual({adults: 1, children: 1})
   })
+
+  it("Total is recorded correctly", function() {
+    reset()
+    enter(1,1)
+    enter(2,1)
+    enter(8,6)
+    expect(total()).toEqual({adults: 11, children: 8})
+  })
+
+  
 })
 
