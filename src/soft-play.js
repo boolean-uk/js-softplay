@@ -1,5 +1,4 @@
 // do not change these lines
-//demo
 function reset() {
   adults = 0;
   children = 0;
