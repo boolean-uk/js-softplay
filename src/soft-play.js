@@ -1,6 +1,6 @@
 // do not change these lines
 function reset () {
-  adult = 0
+  adults = 0
   children = 0
 }
 
@@ -17,7 +17,7 @@ function occupancy() {
 }
 
 function enter(numAdult, numChildren) {
-  if (numChildren === 1 && numAdult === 0) {
+  if (numAdult < numChildren) {
     return false;
   }
   adults += numAdult;
@@ -25,7 +25,16 @@ function enter(numAdult, numChildren) {
   return true;
 }
 function leave(numAdult, numChildren) {
+  if (numAdult === 0) {
+    return false;
+  }
   if (adults === 1) {
+    return false;
+  }
+  if (adults - numAdult < children - numChildren) {
+    return false;
+  }
+  if (adults < numAdult || children < numChildren) {
     return false;
   }
   adults -= numAdult;

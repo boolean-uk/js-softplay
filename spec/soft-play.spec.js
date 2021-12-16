@@ -53,4 +53,32 @@ describe("Soft Play", () => {
     expect(leave(2,1)).toBeTrue()
     expect(occupancy()).toEqual({adults: 0, children: 0})
   })
+
+  it("More Children than Adults", function() {
+    reset()
+    expect(enter(1,2)).toBeFalse()
+    expect(occupancy()).toEqual({adults: 0, children: 0})
+  })
+
+  it("Children leaving without adults", function() {
+    reset()
+    enter(3,1)
+    expect(leave(0,1)).toBeFalse()
+    expect(occupancy()).toEqual({adults: 3, children: 1})
+  })
+
+  it("Always same or more adults than children", function() {
+    reset()
+    enter(3,3)
+    expect(leave(1,0)).toBeFalse()
+    expect(occupancy()).toEqual({adults: 3, children: 3})
+  })
+
+  it("More adults or children leaving than in centre", function() {
+    reset()
+    enter(1,1)
+    expect(leave(2,2)).toBeFalse()
+    expect(occupancy()).toEqual({adults: 1, children: 1})
+  })
 })
+
