@@ -12,21 +12,29 @@ $ npm install
 ```
 
 ## Requirements
-You need to write a program that **maintains a count** of both the number of children and adults inside a soft player center. Inside the `src/soft-play.js` file, you should add the following functions:
+You need to write a program that **maintains a count** of both the number of children and adults inside a soft player center. 
+Inside the `src/soft-play.js` file, you should add the following functions:
 
 ### function enter(numChildren, numAdults) 
 This function should **increase the count of children and adults** by the passed values and return `true`.
 
-Since every child must also be accompanied by at least one adult, if the number of children is *greater* than the number of adults, then the function should return `false` and the adults and children should not be added to the current total.
+Since every child must also be accompanied by at least one adult, if the number of children is *greater* than the number of adults, 
+then the function should return `false` and the adults and children should not be added to the current total.
 
 ### function leave(numChildren, numAdults)
 This function should **decrease the count of children and adults** by the passed values and return `true`. 
 
-However, if a child attempts to leave on their own without and adult, the function should return `false` and the counts should not be changed. 
+However, if a child attempts to leave on their own without and adult, the function should return 
+`false` and the counts should not be changed. 
 
-Since there should be at least 1 adult for every child inside the soft play center, if an adult attempting to leave would cause there to be more children than adults left inside then the function should return `false` and the counts should not be changed.
+Since there should be at least 1 adult for every child inside the soft play center,
+ if an adult attempting to leave would cause there to be more children than adults left
+  inside then the function should return `false` and the counts should not be changed.
 
-The function should also return `false` if the number of adults or children attempting to leave is greater than the current counts - for example, if there is 1 adult and 1 child inside the center, 2 children and 2 adults attempting to leave should return `false` and the counts should not be changed.
+The function should also return `false` if the number of adults or children
+ attempting to leave is greater than the current counts - for example, if there 
+ is 1 adult and 1 child inside the center, 2 children and 2 adults attempting to leave
+  should return `false` and the counts should not be changed.
 
 ### function occupancy()
 This function should return an object with two keys - `adults` should contain the number of children currently inside the soft play center and `children` the number of children. For example:
