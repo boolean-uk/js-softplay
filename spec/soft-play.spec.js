@@ -92,5 +92,11 @@ describe("Soft Play", () => {
   })
 
   
+  it("More adults or children leaving than in centre", function() {
+    reset()
+    enter(1,1)
+    expect(leave(1,1)).toBeTrue()
+    expect(occupancy()).toEqual({adults: 0, children: 0})
+  })
 })
 

@@ -42,7 +42,7 @@ function leave (numAdult, numChildren) {
   if (numAdult === 0) {
     return false
   }
-  if (adults === 1 && numAdult >= 1) {
+  if (adults === 1 && numAdult > 0 && children - numChildren > 0) {
     return false
   }
   if (adults - numAdult < children - numChildren) {
