@@ -8,36 +8,35 @@ counter = 0
 let adults = 0
 let children = 0
 
-function enter(numAdults, numChildren) {
+function enter (numAdults, numChildren) {
   if (numAdults === 0) {
-  return false
+    return false
   }
   if (numAdults >= numChildren) {
-    adults += numAdults; 
+    adults += numAdults
     children += numChildren
-    return true;
+    return true
   }
-  }
-
-function leave(numAdults, numChildren) {
-    if (adults ===1 && children >=1) {
-  return false;
-    }
-    if ((adults - numAdults) < (children - numChildren)) {
-      return false;
-    }
-    if ((adults < numAdults) || (children < numChildren)) {
-      return false;
-    }
-    adults -= numAdults; 
-    children -= numChildren;
-    return true; 
 }
 
-function occupancy() {
-  return { adults: adults, children: children}
+function leave (numAdults, numChildren) {
+  if (adults === 1 && children >= 1) {
+    return false
+  }
+  if ((adults - numAdults) < (children - numChildren)) {
+    return false
+  }
+  if ((adults < numAdults) || (children < numChildren)) {
+    return false
+  }
+  adults -= numAdults
+  children -= numChildren
+  return true
 }
 
+function occupancy () {
+  return { adults: adults, children: children }
+}
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
