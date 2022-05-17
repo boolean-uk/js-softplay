@@ -38,10 +38,8 @@ console.log('--------LEAVE------------');
  console.log('adults:' +adultsRemain+'children:' +childrenRemain);
   if (
     numAdults >= numChilds &&
-    numChilds < children &&
-    numAdults < adults &&
-    adultsRemain >= 1 &&
-    childrenRemain >= 1&&
+    numChilds <= children &&
+    numAdults <= adults &&
     adultsRemain >=childrenRemain
   ) {
     adults = adultsRemain;
