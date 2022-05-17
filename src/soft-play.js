@@ -9,33 +9,27 @@ let adults = 0
 let children = 0
 
 function occupancy() {
-  return { adults: adults, children: children }
+  return { adults: adults, children: children };
 }
 
 function enter(numAdults, numChilds) {
-  //console.log('+++++++++ENTER+++++++++');
-  //console.log('numAdults: ' + numAdults + ' numChilds: ' + numChilds)
  
   if (numAdults >= numChilds) {
-    //console.log('TRUE')
+  
     adults = adults + numAdults;
     children = children + numChilds;
-    //console.log('adults:' + adults + 'children:' + children+'\n');
-    return true
+    
+    return true;
   } else if (numAdults < numChilds) {
-    //console.log('FALSE')
-    return false
+   
+    return false;
   }
 }
 function leave(numAdults, numChilds) {
-//console.log('--------LEAVE------------');
 
-  //Adults came out==Adults came in
-  //console.log('numAdults:' + numAdults + ' numChilds:' + numChilds);
-   
  let childrenRemain = children - numChilds ;
  let adultsRemain = adults - numAdults;
- //console.log('adults:' +adultsRemain+'children:' +childrenRemain);
+ 
   if (
     numAdults >= numChilds &&
     numChilds <= children &&
@@ -44,12 +38,10 @@ function leave(numAdults, numChilds) {
   ) {
     adults = adultsRemain;
     children =childrenRemain;
-   
-    //console.log(' TRUE ');
-    return true
+    return true;
   } else {
-    //console.log(' FALSE ');
-    return false
+    
+    return false;
   }
  
 }
