@@ -1,41 +1,41 @@
 // do not change these lines
 
 function reset() {
-  adults = 0;
-  children = 0;
+  adults = 0
+  children = 0
 }
 
-let adults = 0;
-let children = 0;
+let adults = 0
+let children = 0
 
 function occupancy() {
   return { adults: adults, children: children }
 }
 
 function enter(numAdults, numChilds) {
-  console.log('+++++++++ENTER+++++++++');
-  console.log('numAdults: ' + numAdults + ' numChilds: ' + numChilds)
+  //console.log('+++++++++ENTER+++++++++');
+  //console.log('numAdults: ' + numAdults + ' numChilds: ' + numChilds)
  
   if (numAdults >= numChilds) {
-    console.log('TRUE')
+    //console.log('TRUE')
     adults = adults + numAdults;
     children = children + numChilds;
-    console.log('adults:' + adults + 'children:' + children+'\n');
+    //console.log('adults:' + adults + 'children:' + children+'\n');
     return true
   } else if (numAdults < numChilds) {
-    console.log('FALSE')
+    //console.log('FALSE')
     return false
   }
 }
 function leave(numAdults, numChilds) {
-console.log('--------LEAVE------------');
+//console.log('--------LEAVE------------');
 
-  //dults came out==Adults came in
-  console.log('numAdults:' + numAdults + ' numChilds:' + numChilds);
+  //Adults came out==Adults came in
+  //console.log('numAdults:' + numAdults + ' numChilds:' + numChilds);
    
  let childrenRemain = children - numChilds ;
  let adultsRemain = adults - numAdults;
- console.log('adults:' +adultsRemain+'children:' +childrenRemain);
+ //console.log('adults:' +adultsRemain+'children:' +childrenRemain);
   if (
     numAdults >= numChilds &&
     numChilds <= children &&
@@ -45,10 +45,10 @@ console.log('--------LEAVE------------');
     adults = adultsRemain;
     children =childrenRemain;
    
-    console.log(' TRUE ');
+    //console.log(' TRUE ');
     return true
   } else {
-    console.log(' FALSE ');
+    //console.log(' FALSE ');
     return false
   }
  
