@@ -25,6 +25,9 @@ function leave(numAdults, numChildren){
   if (numChildren > numAdults || numAdults > adults || numChildren > children || adults === 0 || children === 0 ) {
     return false
   }
+  else if (children <= 2 && numAdults > numChildren) {
+    return false
+  }
   else if (numChildren <= numAdults) {
     adults -= numAdults
     children -= numChildren
