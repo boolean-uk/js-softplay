@@ -5,76 +5,50 @@ let children = 0
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
-function occupancy() {
-  return {
-    adults: adults,
-    children: children
+function enter(numAdults, numChildren) {
+  if (numAdults < numChildren) {
+    return false
+  } else if (numAdults >= numChildren) {
+    adults += numAdults //updating adding to current total
+    children += numChildren
+    // console.log(adults)
+    // console.log(children)
+    return true
   }
 }
+// console.log(enter(40, 3))
 
-function incrementAdult() {
-  adults++
-}
-function incrementChildren() {
-  children++
-}
-
-function decrementAdult() {
-  adults--
-}
-function decrementChild() {
-  children--
-}
-
-function enter(numAdult, numChildren) {
-  let value = true
-
-  if (numChildren <= numAdult) {
-    
-    console.log(value)
-    for (let i = 0; i < numAdult; i++) {
-      incrementAdult()
-    }
-    for (let i = 0; i < numChildren; i++) {
-      incrementChildren()
-    }
-  } else {
-    value = false
-  }
-  return value
-}
-//console.log(enter(1, 1))
-
-function leave(leavAdult, leavChildren) {
-  let value = true
-  const remainAdult = adults - leavAdult
-  const remainChildren = children - leavChildren
-  if (leavChildren > leavAdult) {
+function leave(numAdults, numChildren) {
+  if (numAdults < numChildren) {
+    return false
+  } else if (adults < children) {
     return false
   }
-  if (leavAdult === 0 && leavChildren > 0) {
+  else if (numAdults < numChildren) {
+    return false
+  } else if (numAdults + numChildren > adults + children) {
     return false
   }
-  if (remainAdult < 0) {
-    return false
-  }
-  if (remainChildren < 0) {
-    return false
-  }
-  if (remainAdult >= remainChildren) {
-    value = true
-    for (let i = 0; i < leavAdult; i++) {
-      decrementAdult()
+    else if (adults - numAdults < children - numChildren) {
+      return false
     }
-    for (let i = 0; i < leavChildren; i++) {
-      decrementChild()
-    }
-  } else {
-    value = false
+   else {
+    adults -= numAdults
+    children -= numChildren
+    // console.log(adults)
+    // console.log(children)
+    return true
   }
-  return value
 }
-//console.log(leave(2, 2))
+  
+
+  function occupancy() {
+    const occupants = {adults: 0, children: 10}
+    occupants.adults = adults
+    occupants.children = children
+    return occupants
+  }
+  // console.log(occupancy())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
