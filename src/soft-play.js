@@ -6,16 +6,15 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
-const totalGuests = {
-  adults: 0, 
+let totalGuests = {
+  adults: 0,
   children: 0
 }
 
-function occupancy() {
-  return [totalGuests.adults, totalGuests.children]
+//moved this from the top-bottom to here in case of scope but now it doesn't recognise enterAdult
+function totalPeople() {
+  return totalGuests
 }
-
-console.log(occupancy())
 
 // phase 2
 
@@ -32,12 +31,12 @@ function enter(enterAdult, enterKids) {
   }
 }
 
-console.log(enter(2, 1))
-console.log(occupancy())
+// console.log(enter(2, 1))
+// console.log(totalGuests)
 
 // // phase 3
 function leave(numAdult, numChild) {
-  if (numChild > numAdult || children - numChild > adults - numAdult) {
+  if (numChild > numAdult || children - numChild > adults - numAdult || children > adults) {
     return false
   } else {
     totalGuests.adults -= numAdult
@@ -48,12 +47,12 @@ function leave(numAdult, numChild) {
   }
 }
 
-console.log(leave(1, 1))
-console.log(totalGuests)
+// console.log(leave(1, 1))
+// console.log(totalGuests)
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: enter(),
-  leave: leave(),
-  occupancy: occupancy()
+  enter: enter,
+  leave: leave,
+  occupancy: totalPeople
 }
