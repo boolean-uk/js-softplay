@@ -11,6 +11,7 @@ class SoftPlay {
     // 🟢 Passed
     this.numAdults += numAdults
     this.numChildren += numChildren
+    return true
   }
 
   leave(numAdults, numChildren) {
@@ -19,9 +20,8 @@ class SoftPlay {
       return false
 
     // 🔴 More adults leaving, children will be left alone
-    const enoughtAdultsRemaining =
-      this.numAdults - numAdults < this.numChildren - numChildren
-    if (!enoughtAdultsRemaining) return false
+    if (this.numAdults - numAdults < this.numChildren - numChildren)
+      return false
 
     // 🔴 More children leaving than adults
     if (numChildren > numAdults) return false
@@ -29,6 +29,7 @@ class SoftPlay {
     // 🟢 Passed
     this.numAdults -= numAdults
     this.numChildren -= numChildren
+    return true
   }
 
   occupancy() {
