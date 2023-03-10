@@ -46,11 +46,18 @@ function occupancy() {
   return { adults: adults, children: children }
 }
 
+const total = () => {
+  return { adults: adults, children: children }
+}
+
 console.log(occupancy())
+console.log(total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
+  
 }
