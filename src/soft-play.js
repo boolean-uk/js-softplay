@@ -21,7 +21,6 @@ let children = 0
 
 function occupancy(a, c) {
   const headCount = { adults: a, children: c }
-  console.log(headCount.keys)
   return headCount
 }
 
