@@ -16,11 +16,14 @@ function enter(numAdultsEntered, numChildrenEntered) {
 }
 
 function leave(numAdultsLeft, numChildrenLeft) {
+  console.log("numAdultsLeft :", numAdultsLeft, "numChildrenLeft :", numChildrenLeft);
+  console.log("adults :", adults, "children :", children);
   if (numChildrenLeft > numAdultsLeft || children < numChildrenLeft || adults < numAdultsLeft || numAdultsLeft < 0 || numChildrenLeft < 0) {
     return false;
   }
   adults -= numAdultsLeft;
   children -= numChildrenLeft;
+  console.log("adults after leaving :", adults, "children after leaving :", children);
   return true;
 }
 
