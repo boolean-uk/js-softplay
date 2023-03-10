@@ -15,32 +15,42 @@ const enter = (numAdults, numChildren) => {
     return true
   }
 }
+// adults 2
+// children 1
+// leaving
+// numadults 1
+// numchildren 0
 
 const leave = (numAdults, numChildren) => {
-  if (numChildren > numAdults){
+  if (numChildren > numAdults) {
     return false
-  }
-  else if ((adults - numAdults) < (children - numChildren)) {
+  } else if (adults - numAdults < children - numChildren) {
     return false
-  }
-  else if (children - numChildren < 0){
+  } else if (children - numChildren < 0) {
     return false
-  }
-  else if (numAdults >= numChildren){
+  } else if (numAdults === 0 && numChildren > 0) {
+    return false
+  } else if (numAdults >= numChildren) {
     adults -= numAdults
     children -= numChildren
     return true
   }
 }
 
+const occupancy = () => {
+  return { adults: adults, children: children }
+}
+
 // console.log(`Adults, ${adults} \nChildren, ${children}`)
-console.log(enter(0, 0))
-console.log(leave(0, 0))
-console.log(`Adults, ${adults} \nChildren, ${children}`)
+// console.log(occupancy())
+// console.log(enter(2, 1))
+// console.log(occupancy())
+// console.log(leave(1, 0))
+// console.log(occupancy())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
