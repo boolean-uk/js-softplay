@@ -8,47 +8,50 @@ let children = 0
 // Start with the occupancy function.
 
 //Function 1 Enter
-function enter(numAdults, numChildren) {
-  adults += numAdults
-  children += numChildren
-  console.log('Number of Adults', adults)
-  console.log('Number of kids', children)
-  if (numAdults < numChildren) {
+function peopleEntering(numAdultsIn, numChildrenIn) {
+  // console.log('Number of Adults', adults)
+  // console.log('Number of kids', children)
+  if (numAdultsIn < numChildrenIn || numAdultsIn <= 0 || numChildrenIn <= 0) {
     return false
   } else {
+    adults += numAdultsIn
+    children += numChildrenIn
     return true
   }
 }
-console.log(enter(, ))
-//Function 2 Leave center
+// console.log(peopleEntering(5, 3))
+// //Function 2 Leave center
 
-function leave(numAdults, numChildren) {
-  adults -= numAdults
-  children -= numChildren
-  console.log('Number of Adults in the building', adults)
-  console.log('Number of kid in the building', children)
-  if (adults <= children || numAdults <= numChildren) {
+function peopleLeaving(numAdultsOut, numChildrenOut) {
+  if (
+    numAdultsOut === 0 ||
+    adults - numAdultsOut < children - numChildrenOut ||
+    numChildrenOut > numAdultsOut ||
+    adults < numAdultsOut ||
+    children < numChildrenOut
+  ) {
     return false
   } else {
+    adults -= numAdultsOut
+    children -= numChildrenOut
     return true
   }
 }
-
-console.log(leave(, ))
+// console.log(peopleLeaving(2,2))
 
 //Function Ocuupancy
 
-function occupancy() {
+function currentOccupancy() {
   let counter = 0
   counter = { adults: adults, children: children }
   return counter
 }
-console.log(occupancy())
+// console.log(currentOccupancy())
 
 //
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: enter,
-  leave: leave,
-  occupancy: occupancy
+  enter: peopleEntering,
+  leave: peopleLeaving,
+  occupancy: currentOccupancy
 }
