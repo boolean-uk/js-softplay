@@ -8,12 +8,11 @@ let children = 0
 
 function enter(numAdultsEntered, numChildrenEntered) {
   if (numChildrenEntered > numAdultsEntered || numAdultsEntered <= 0 || numChildrenEntered <= 0) {
-    return false
+    return false;
   }
   adults += numAdultsEntered
   children += numChildrenEntered
-  console.log("adults :", adults, "children :", children)
-  return true
+  return true;
 }
 
 // enter(1, 1)
@@ -41,6 +40,7 @@ leave(1, 1)
 leave(3, 3)
 leave(4, 4)
 leave(3, 3)
+
 
 function occupancy() {
   return { adults: adults, children: children }
