@@ -41,12 +41,20 @@ const occupancy = () => {
   return { adults: adults, children: children }
 }
 
-// console.log(`Adults, ${adults} \nChildren, ${children}`)
-// console.log(occupancy())
-// console.log(enter(2, 1))
-// console.log(occupancy())
-// console.log(leave(1, 0))
-// console.log(occupancy())
+const total = () => {
+  adults += numAdults
+  children += numChildren
+  return { adults: adults, children: children }
+}
+
+console.log(`Adults, ${adults} \nChildren, ${children}`)
+console.log(occupancy())
+console.log(enter(2, 1))
+console.log(enter(2, 1))
+console.log(occupancy())
+console.log(leave(1, 0))
+console.log(occupancy())
+console.log(total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
