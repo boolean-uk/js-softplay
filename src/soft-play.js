@@ -16,9 +16,27 @@ const enter = (numAdults, numChildren) => {
   }
 }
 
+const leave = (numAdults, numChildren) => {
+  if (numChildren > numAdults){
+    return false
+  }
+  else if ((adults - numAdults) < (children - numChildren)) {
+    return false
+  }
+  else if (children - numChildren < 0){
+    return false
+  }
+  else if (numAdults >= numChildren){
+    adults -= numAdults
+    children -= numChildren
+    return true
+  }
+}
+
 // console.log(`Adults, ${adults} \nChildren, ${children}`)
-// console.log(enter(2, 2))
-// console.log(`Adults, ${adults} \nChildren, ${children}`)
+console.log(enter(0, 0))
+console.log(leave(0, 0))
+console.log(`Adults, ${adults} \nChildren, ${children}`)
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
