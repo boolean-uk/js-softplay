@@ -12,30 +12,17 @@ function enter(numAdultsEntered, numChildrenEntered) {
   }
   adults += numAdultsEntered
   children += numChildrenEntered
-  console.log("adults :", adults, "children :", children)
   return true;
 }
-
-enter(1, 1)
-enter(2, 2)
-enter(0, 2)
-enter(4, 4)
 
 function leave(numAdultsLeft, numChildrenLeft) {
   if (numChildrenLeft > numAdultsLeft || children < numChildrenLeft || adults < numAdultsLeft || numAdultsLeft < 0 || numChildrenLeft < 0) {
     return false;
   }
-  if (adults >= numAdultsLeft && children >= numChildrenLeft) {
-    adults -= numAdultsLeft;
-    children -= numChildrenLeft;
-    return true;
-  }
+  adults -= numAdultsLeft;
+  children -= numChildrenLeft;
+  return true;
 }
-
-leave(1, 1)
-leave(3, 3)
-leave(4, 4)
-leave(3, 3)
 
 function occupancy() {
   return { adults: adults, children: children }
