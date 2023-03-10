@@ -8,12 +8,12 @@ let children = 0
 
 function enter(numAdultsEntered, numChildrenEntered) {
   if (numChildrenEntered > numAdultsEntered || numAdultsEntered <= 0 || numChildrenEntered <= 0) {
-    return false
+    return false;
   }
   adults += numAdultsEntered
   children += numChildrenEntered
   console.log("adults :", adults, "children :", children)
-  return true
+  return true;
 }
 
 enter(1, 1)
@@ -23,12 +23,13 @@ enter(4, 4)
 
 function leave(numAdultsLeft, numChildrenLeft) {
   if (numChildrenLeft > numAdultsLeft || children < numChildrenLeft || adults < numAdultsLeft || numAdultsLeft < 0 || numChildrenLeft < 0) {
-    return false
+    return false;
   }
-  adults -= numAdultsLeft
-  children -= numChildrenLeft
-  console.log("adults :", adults, "children :", children)
-  return true
+  if (adults >= numAdultsLeft && children >= numChildrenLeft) {
+    adults -= numAdultsLeft;
+    children -= numChildrenLeft;
+    return true;
+  }
 }
 
 leave(1, 1)
