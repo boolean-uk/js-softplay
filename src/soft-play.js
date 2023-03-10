@@ -6,12 +6,17 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+let totalAdults = 0
+let totalChildren = 0
+
 const enter = (numAdults, numChildren) => {
   if (numChildren > numAdults) {
     return false
   } else {
     adults += numAdults
     children += numChildren
+    totalAdults += numAdults
+    totalChildren += numChildren
     return true
   }
 }
@@ -42,23 +47,22 @@ const occupancy = () => {
 }
 
 const total = () => {
-  adults += numAdults
-  children += numChildren
-  return { adults: adults, children: children }
+  return { adults: totalAdults, children: totalChildren }
 }
 
-console.log(`Adults, ${adults} \nChildren, ${children}`)
-console.log(occupancy())
-console.log(enter(2, 1))
-console.log(enter(2, 1))
-console.log(occupancy())
-console.log(leave(1, 0))
-console.log(occupancy())
-console.log(total())
+// console.log(`Adults, ${adults} \nChildren, ${children}`)
+// console.log(occupancy())
+// console.log(enter(2, 1))
+// console.log(enter(2, 1))
+// console.log(occupancy())
+// console.log(leave(1, 0))
+// console.log(occupancy())
+// console.log(total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
