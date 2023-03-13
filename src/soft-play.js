@@ -84,7 +84,7 @@ function leave(numAdults, numChildren) {
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
