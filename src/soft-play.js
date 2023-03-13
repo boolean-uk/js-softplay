@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalChildren = 0
+let totalAdults = 0
 
 // TODO: Write your functions in the below section.
 //our functions should update
@@ -16,6 +18,8 @@ function peopleEntering(numAdultsIn, numChildrenIn) {
   } else {
     adults += numAdultsIn
     children += numChildrenIn
+    totalAdults += numAdultsIn
+    totalChildren += numChildrenIn
     return true
   }
 }
@@ -49,9 +53,17 @@ function currentOccupancy() {
 // console.log(currentOccupancy())
 
 //
+function total() {
+  let totalIn = 0
+  totalIn = { adults: totalAdults, children: totalChildren }
+  console.log(totalIn)
+  return totalIn
+}
+// total()
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: peopleEntering,
   leave: peopleLeaving,
-  occupancy: currentOccupancy
+  occupancy: currentOccupancy,
+  total: total
 }
