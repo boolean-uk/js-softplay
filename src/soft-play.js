@@ -24,7 +24,7 @@ function occupancy() {
   return headCount
 }
 
-console.log(occupancy())
+// console.log(occupancy())
 
 // inside an object number of children and adults change
 // creates an object headCount
@@ -40,7 +40,7 @@ function enter(numAdults, numChildren) {
     return true
   }
 }
-console.log(enter(1, 1))
+// console.log(enter(1, 1))
 
 // Check the number of children and the number of adults
 // If the number of childern are larger than the number of adults, return(false)
@@ -65,7 +65,7 @@ function leave(numAdults, numChildren) {
   }
 }
 
-console.log(leave(1, 0))
+// console.log(leave(1, 0))
 
 // adults <0, children<0 ---
 // adults = adults - numAdults ---
