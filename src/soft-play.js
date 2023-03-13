@@ -19,28 +19,28 @@ let children = 0
 //   return headCount
 // }
 
-function occupancy(a, c) {
-  const headCount = { adults: a, children: c }
+function occupancy() {
+  const headCount = { adults: adults, children: children }
   return headCount
 }
 
-console.log(occupancy(adults, children))
+console.log(occupancy())
 
 // inside an object number of children and adults change
 // creates an object headCount
 
 function enter(numAdults, numChildren) {
   if (numChildren > numAdults) {
-    console.log(occupancy(adults, children))
+    
     return false
   } else {
     adults += numAdults
     children += numChildren
-    console.log(occupancy(adults, children))
+    
     return true
   }
 }
-console.log(enter(2, 1))
+console.log(enter(1, 1))
 
 // Check the number of children and the number of adults
 // If the number of childern are larger than the number of adults, return(false)
@@ -52,20 +52,20 @@ function leave(numAdults, numChildren) {
     adults - numAdults < 0 ||
     children - numChildren < 0
   ) {
-    console.log(occupancy(adults, children))
+    
     return false
   } else if (adults - numAdults < children - numChildren) {
-    console.log(occupancy(adults, children))
+    
     return false
   } else {
     adults = adults - numAdults
     children = children - numChildren
-    console.log(occupancy(adults, children))
+    
     return true
   }
 }
 
-console.log(leave(7, 3))
+console.log(leave(1, 0))
 
 // adults <0, children<0 ---
 // adults = adults - numAdults ---
