@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdults = 0
+let totalChildren = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -12,6 +14,8 @@ function enter(numAdultsEntered, numChildrenEntered) {
   }
   adults += numAdultsEntered
   children += numChildrenEntered
+  totalAdults += numAdultsEntered
+  totalChildren += numChildrenEntered
   return true;
 }
 
@@ -47,7 +51,7 @@ function occupancy() {
 }
 
 const total = () => {
-  return { adults: adults, children: children }
+  return { adults: totalAdults, children: totalChildren }
 }
 
 console.log(occupancy()) // output for testing
