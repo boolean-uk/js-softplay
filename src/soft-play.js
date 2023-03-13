@@ -5,7 +5,8 @@ let children = 0
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
-
+let aT = 0 // adult total
+let cT = 0 // child total
 // function occupancy(a, c){
 //   const headCount = {adults: a, children: c}
 
@@ -35,6 +36,8 @@ function enter(numAdults, numChildren) {
   } else {
     adults += numAdults
     children += numChildren
+    aT += numAdults
+    cT += numChildren
 
     return true
   }
@@ -64,23 +67,29 @@ function leave(numAdults, numChildren) {
 
 // console.log(leave(1, 0))
 
-// adults <0, children<0 ---
-// adults = adults - numAdults ---
-// children = children - numChildren ---
-// adult >= children ---
-
-// child must leave with an adult ---
-// children =< adults leaving ---
-
-// occupancy cant go below 0 in any key --
-// inside occupancy(function) adult value must be larger then child value ---
-// return false if checks dont pass
-// return true and deducted if passed
-
-function total(a, b) {
-  enter(a, b)
-  return { adults, children }
+function total() {
+  return { adults: aT, children: cT }
 }
+
+// console.log(total())
+
+// adults/c increased within total function
+// when leave function is used the value of adult and children isnt effected within the total function
+
+// adults =+ adults (doesnt go down in value)
+// if (adults >= adults) aa
+// if adults < a
+// adults
+// 6 10
+// 10 8
+// 8 10
+
+// console.log(total(1, 2))
+// console.log(total(6, 4))
+// console.log(total(3, 3))
+// function total() {
+//   return { adults, children }
+// }
 
 // console.log(total(5, 2))
 // console.log(total(2, 2))
@@ -91,5 +100,6 @@ function total(a, b) {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
