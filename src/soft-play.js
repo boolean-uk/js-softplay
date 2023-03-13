@@ -50,8 +50,8 @@ const total = () => {
   return { adults: adults, children: children }
 }
 
-console.log(occupancy())
-console.log(total())
+console.log(occupancy()) // output for testing
+console.log(total()) // output for testing
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
