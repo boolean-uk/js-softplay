@@ -20,7 +20,7 @@ let children = 0
 // }
 
 function occupancy() {
-  const headCount = { adults: adults, children: children }
+  const headCount = { adults, children }
   return headCount
 }
 
@@ -31,12 +31,11 @@ function occupancy() {
 
 function enter(numAdults, numChildren) {
   if (numChildren > numAdults) {
-    
     return false
   } else {
     adults += numAdults
     children += numChildren
-    
+
     return true
   }
 }
@@ -52,15 +51,13 @@ function leave(numAdults, numChildren) {
     adults - numAdults < 0 ||
     children - numChildren < 0
   ) {
-    
     return false
   } else if (adults - numAdults < children - numChildren) {
-    
     return false
   } else {
     adults = adults - numAdults
     children = children - numChildren
-    
+
     return true
   }
 }
@@ -79,6 +76,16 @@ function leave(numAdults, numChildren) {
 // inside occupancy(function) adult value must be larger then child value ---
 // return false if checks dont pass
 // return true and deducted if passed
+
+function total(a, b) {
+  enter(a, b)
+  return { adults, children }
+}
+
+// console.log(total(5, 2))
+// console.log(total(2, 2))
+// only update for entry
+// enter function
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
