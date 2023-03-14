@@ -14,6 +14,11 @@ function occupancy() {
 return object
 }
 
+function total() {
+  object.adults = totalAdults
+  object.children = totalChildren
+}
+
 function enter(numAdults, numChildren) {
   if (numChildren > numAdults) {
     return false
@@ -21,6 +26,8 @@ function enter(numAdults, numChildren) {
   else { 
     adults = adults + numAdults
     children = children + numChildren
+    totalAdults += numAdults
+    totalChildren += numChildren
     return true
   }
 }
@@ -40,6 +47,7 @@ function leave(numAdults, numChildren) {
     return true
   }
 } 
+
 
 // enter(4,2)
 // console.log(`4,`, `2`)
@@ -86,5 +94,6 @@ function leave(numAdults, numChildren) {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
