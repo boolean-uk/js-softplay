@@ -38,16 +38,15 @@ function leavingPeople(numAdults, numChildren) {
 }
 
 // function total() {
-//const totPeople = {}
-//totPeople.adults =
-// totPeople.children =
-// return totPeople
-//}
+//   const totPeople = {}
+//   totPeople.adults =
+//   totPeople.children =
+//   return totPeople
+// }
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enteringPeople,
   leave: leavingPeople,
-  occupancy: occupancy,
-  total: total
+  occupancy: occupancy
 }
