@@ -15,9 +15,11 @@ return object
 }
 
 function total() {
-  object.adults = totalAdults
-  object.children = totalChildren
-}
+  const totalObject = {}
+  totalObject.adults = totalAdults
+  totalObject.children = totalChildren
+  return totalObject
+} 
 
 function enter(numAdults, numChildren) {
   if (numChildren > numAdults) {
