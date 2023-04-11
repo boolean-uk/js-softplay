@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totaladluts = 0
+let totalchildren = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -9,6 +11,13 @@ function occupancy() {
   return {
     adults,
     children
+  }
+}
+
+function total() {
+  return {
+    adults: totaladluts,
+    children: totalchildren
   }
 }
 // console.log(occupancy().adults)
@@ -21,6 +30,8 @@ function enter(numAdults, numChildren) {
   } else {
     adults = adults + numAdults
     children = children + numChildren
+    totaladluts += numAdults
+    totalchildren += numChildren
     return true
   }
 }
@@ -59,5 +70,6 @@ function leave(numAdults, numChildren) {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
