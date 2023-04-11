@@ -21,7 +21,7 @@ This function is used to register adults and children entering the soft play cen
 
 If any of these checks fail, the function should return `false`. Otherwise, the function should return `true` and `numAdults` and `numChildren` should be added to the current totals.
 
-### function leave(numAdults, numChildren)
+### function leave(nmAdultus, numChildren)
 This function is used to register adults and children leaving the soft play center. The function should check for the following conditions:
 
 * A child is not attempting to leave without an adult
