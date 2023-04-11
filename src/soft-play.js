@@ -14,7 +14,19 @@ function enter(numAdults, numChildren) {
   children += numChildren
   return true
 }
-function leave(numAdults, numChildren) {}
+function leave(numAdults, numChildren) {
+  if (
+    adults < numAdults ||
+    children < numChildren ||
+    numAdults < numChildren ||
+    adults - numAdults < children - numChildren
+  ) {
+    return false
+  }
+  adults -= numAdults
+  children -= numChildren
+  return true
+}
 function occupancy() {
   return {
     adults: adults,
