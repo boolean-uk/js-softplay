@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdults = 0
+let totalChildren = 0
 // ### function enter(numAdults, numChildren)
 // This function is used to register adults and children entering the soft play center.
 // The function should check for the following conditions:
@@ -34,6 +36,8 @@ function enter(numAdults, numChildren) {
   if (numChildren <= numAdults) {
     adults += numAdults
     children += numChildren
+    totalAdults += numAdults
+    totalChildren += numChildren
     return true
   } else {
     return false
@@ -56,10 +60,17 @@ function leave(numAdults, numChildren) {
     return false
   }
 }
+function total() {
+  return {
+    adults: totalAdults,
+    children: totalChildren
+  }
+}
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
