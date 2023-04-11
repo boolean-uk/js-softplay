@@ -10,52 +10,51 @@ function occupancy() {
     adults,
     children
   }
-
-  }
-
-
+}
+// console.log(occupancy().adults)
 
 function enter(numAdults, numChildren) {
-
   if (numAdults < 1) {
-     return false
+    return false
   } else if (numChildren > numAdults) {
     return false
-  }
-  else { 
-    adults =  adults + numAdults
+  } else {
+    adults = adults + numAdults
     children = children + numChildren
     return true
-    
   }
 }
 
 function leave(numAdults, numChildren) {
-  if (occupancy.adults < 1) {
+  // const currentCenter = occupancy()occupancy()
+  // console.log(currentCenter)
+  if (occupancy().adults < 1) {
     return false
-  } else if (occupancy.adults < occupancy.children) {
+  } else if (occupancy().adults < occupancy().children) {
     return false
-  } 
-  else if (occupancy.adults - numAdults === 0 && occupancy.children - numChildren > 0) {
+  } else if (
+    occupancy().adults - numAdults === 0 &&
+    occupancy().children - numChildren > 0
+  ) {
     return false
-  }
-  else if (numChildren > numAdults) {
+  } else if (numChildren > numAdults) {
     return false
   } else if (numAdults < 1) {
+    return falsecurrentCenter
+  } else if (
+    occupancy().adults === occupancy().children &&
+    numAdults > numChildren
+  ) {
     return false
-  } else if (numChildren > occupancy.children || numAdults > occupancy.adults) {
-    return false
-  }
-  else {
-      adults = adults - numAdults,
-      children = children - numChildren
-      return true
+  } else {
+    adults = adults - numAdults
+    children = children - numChildren
+    return true
   }
 }
 
-
-
-
+// console.log(leave())
+// leave(2, 1)
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
