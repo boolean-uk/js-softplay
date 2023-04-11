@@ -15,8 +15,18 @@ function enter(numAdults, numChildren) {
   return true
 }
 function leave(numAdults, numChildren) {}
-function occupancy() {}
-function total() {}
+function occupancy() {
+  return {
+    adults: adults,
+    children: children
+  }
+}
+function total() {
+  return {
+    adults: totalAdults,
+    children: totalChildren
+  }
+}
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
