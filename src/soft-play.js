@@ -25,11 +25,24 @@ function enter(numAdults, numChildren) {
 }
 
 // Leave function
-
+function leave(numAdults, numChildren) {
+  if (
+    numChildren <= numAdults &&
+    numAdults + numChildren <= adults + children &&
+    adults - numAdults >= children - numChildren
+  ) {
+    adults -= numAdults
+    children -= numChildren
+    return true
+  } else {
+    console.log('Error')
+    return false
+  }
+}
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
