@@ -6,9 +6,47 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+const occupancy = () => {
+  return {
+    adults: adults,
+    children: children
+  }
+}
+
+const enter = (numAdults, numChildren) => {
+
+  if(numAdults < 0 || numChildren < 0) return false
+
+  if(numChildren / numAdults <= 1){ 
+    adults += numAdults;
+    children += numChildren
+    return true
+  }
+
+  return false
+
+}
+
+const leave = (numAdults, numChildren) => {
+    if(numAdults < 0 || numChildren < 0) return false
+    if(numChildren / numAdults > 1) return false
+    
+    const leftAdults = adults - numAdults
+    const leftChildren = children - numChildren
+    if(leftChildren > leftAdults) return false
+    if(numAdults < numChildren) return false
+    if(numAdults > adults || numChildren > children) return false
+
+    adults -= numAdults
+    children -= numChildren
+    return true
+
+}
+
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
