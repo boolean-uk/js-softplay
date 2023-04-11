@@ -1,7 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
-
+let totalAdults = 0
+let totalChildren = 0
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
@@ -16,24 +17,14 @@ function occupancy() {
 function enter(numAdults, numChildren) {
   if (numChildren <= numAdults) {
     adults += numAdults
+    totalAdults += numAdults
     children += numChildren
+    totalChildren += numChildren
     return true
   } else {
     return false
   }
 }
-
-/* function leave(numAdults, numChildren)
-This function is used to register adults and children leaving the soft play center. The function should check for the following conditions:
-
-- A child is not attempting to leave without an adult
-- The number of adults and children left inside the center will not cause there to be more children than adults 
-there must be at least 1 adult for 1 child inside the center at all times)
-Every child leaving the soft play center is accompanied by at least 1 adult.
-- The number of adults and children attempting to leave is not greater than the number currently inside the center
-If any of these checks fail, function should return false. Otherwise, the function should return true and numAdults 
-and numChildren should be deducted from the current totals. 
-*/
 
 function leave(numAdults, numChildren) {
   if (numAdults < numChildren) {
@@ -50,9 +41,17 @@ function leave(numAdults, numChildren) {
   return true
 }
 
+function total() {
+  return {
+    adults: totalAdults,
+    children: totalChildren
+  }
+}
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
