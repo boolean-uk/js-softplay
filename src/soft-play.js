@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdults = 0
+let totalChildren = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -9,6 +11,11 @@ let children = 0
 function occupancy () {
   const occupancy = {adults, children}
   return occupancy
+}
+
+function total () {
+  const total = {adults : totalAdults, children : totalChildren}
+  return total
 }
 
 function enter (numAdults, numChildren) {
@@ -21,6 +28,8 @@ function enter (numAdults, numChildren) {
 
   adults = updatedAdults
   children = updatedChildren
+  totalAdults += numAdults
+  totalChildren += numChildren
   return true
 }
 
@@ -47,9 +56,11 @@ function leave (numAdults, numChildren) {
   return true
 }
 
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
