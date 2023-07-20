@@ -6,10 +6,20 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+let totalAdults = 0
+let totalChildren = 0
+
 function occupancy() {
   return {
     adults: adults,
     children: children
+  }
+}
+
+function total() {
+  return {
+    adults: totalAdults,
+    children: totalChildren
   }
 }
 
@@ -19,6 +29,9 @@ function enter(numAdults, numChildren) {
 
   adults += numAdults
   children += numChildren
+
+  totalAdults += numAdults
+  totalChildren += numChildren
   
   return true
 }
@@ -43,5 +56,6 @@ function leave(numAdults, numChildren) {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
