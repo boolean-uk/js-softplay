@@ -22,7 +22,7 @@ describe("Soft Play", () => {
 
   it("2 adults with 1 child can softplay.enter", function() {
     expect(softplay.enter(2,1)).toBeTrue()
-    expect(softplay.occupancy()).toEqual({adults: 2, children: 1})
+    expect(softplay.occupancy()).toEqual({ adults: 2, children: 1 })
   })
 
   it("Adult can softplay.leave when adults 2 and children 1", function() {
