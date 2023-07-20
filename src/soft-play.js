@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdults = 0
+let totalChildren = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -9,8 +11,10 @@ function enter(numAdults, numChildren){
   if(numChildren > numAdults){
     return false
   }
-  children+= numChildren
-  adults+= numAdults
+  children += numChildren
+  adults += numAdults
+  totalAdults += numAdults
+  totalChildren += numChildren
   return true
 }
 
@@ -37,9 +41,16 @@ function occupancy(){
   obj['children'] = children
   return obj
 }
+function total(){
+  let obj = {}
+  obj['adults'] = totalAdults
+  obj['children'] = totalChildren
+  return obj
+}
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
