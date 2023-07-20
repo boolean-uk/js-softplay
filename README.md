@@ -128,3 +128,9 @@ Once you have completed the exercise, take a moment to ask yourself the followin
 
 * The functions you have created only consider a single soft play center - what if we wanted to keep track of multiple soft play centers at the same time?
 * If we do keep track of multiple soft play centers, imagine we also want to have different rules for different centers. For example, perhaps some centers a child must be accompanied by at least 2 adults. How would you implement this?
+
+### Answers
+* For keeping track of multiple softplay centers - make softplay center into a class, so we can create multiple objects
+    with independent internal states
+* For making rules vary between softplay centers - make softplay center object have a property describing rules
+  (for example `adultsPerChild`) and validate amount based on this property
