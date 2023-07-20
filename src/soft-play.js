@@ -2,7 +2,21 @@
 let adults = 0
 let children = 0
 
+let totalAdultsEntered = 0
+let totalChildrenEntered = 0
+
 const isEnoughAdults = (a, c) => a >= c
+const addPeople = ( a, c ) => {
+  adults += a
+  totalAdultsEntered += a
+
+  children += c
+  totalChildrenEntered += c
+}
+const subtractPeople = ( a, c ) => {
+  adults -= a
+  children -= c
+}
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -11,8 +25,7 @@ const enter = (numAdults, numChildren) => {
   if (!isEnoughAdults(numAdults, numChildren)) {
     return false
   }
-  adults += numAdults
-  children += numChildren
+  addPeople(numAdults, numChildren)
   return true
 }
 
@@ -23,8 +36,7 @@ const leave = (numAdults, numChildren) => {
   ) {
     return false
   }
-  adults -= numAdults
-  children -= numChildren
+  subtractPeople(numAdults, numChildren)
   return true
 }
 
@@ -35,9 +47,17 @@ const occupancy = () => {
   }
 }
 
+const total = () => {
+  return {
+    adults: totalAdultsEntered,
+    children: totalChildrenEntered
+  }
+}
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter,
   leave,
-  occupancy
+  occupancy, 
+  total
 }
