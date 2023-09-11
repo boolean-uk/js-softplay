@@ -45,14 +45,12 @@ function occupancy() {
   }
 }
 
-function total () {
-  return{ 
+function total() {
+  return {
     adults: totalAdult,
-    children: totalChildren 
+    children: totalChildren
   }
 }
-
-
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
