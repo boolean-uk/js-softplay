@@ -15,8 +15,8 @@ npm ci
 You need to write a program that **maintains a count** of both the number of children and adults inside a soft player center. Inside the `src/soft-play.js` file, you should add the following functions:
 
 ### function enter(numAdults, numChildren)
-This function is used to register adults and children entering the soft play center. The function should check for the following conditions:
-
+This function is used to rdren entering the soft play center. The function should check for the following conditions:
+egister adults and chil
 * Every child entering the soft play center is accompanied by at least 1 adult.
 
 If any of these checks fail, the function should return `false`. Otherwise, the function should return `true` and `numAdults` and `numChildren` should be added to the current totals.
