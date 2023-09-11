@@ -47,6 +47,7 @@ function leave(numAdults, numChildren) {
       check = true
       adults -= numAdults
       children -= numChildren
+
     }
   }
 
@@ -55,6 +56,39 @@ function leave(numAdults, numChildren) {
 
 console.log('q3', leave(2, 2))
 console.log(occupancy())
+
+function total() {
+  //adult and children variables need to be increasing in value and if true then the total values will be updated
+  let countA = 0
+  let countC = 0
+  
+  let x = 0
+  let y = 0
+
+  if (x < adults) {
+    const diffA = adults - x
+    countA += diffA
+    x = adults
+  }
+  else {
+    y = children
+  }
+
+  if (y < children) {
+    const diffC = children - y
+    countC += diffC
+    y = children
+  }
+  else {
+    y = children
+  }
+
+  const customers = {adult: countA, children: countC}
+
+  return customers
+}
+
+console.log(total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
