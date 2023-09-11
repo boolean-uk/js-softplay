@@ -37,9 +37,6 @@ const resetTotalCount = (() => {
   softballCenterTotal.children = 0
 })
 
-// softballCenter.adults += 1
-// console.log("occupancy after adding one adult manually", occupancy())
-
 enter = (num1, num2) => {
   if (num1 >= num2) {
     softballCenter.adults += num1
