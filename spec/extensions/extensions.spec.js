@@ -21,19 +21,12 @@ describe("Soft Play Extensions", () => {
   })
 
   it("shows total people entered", function() {
-    console.log("starting tally", softplay.total())
     softplay.enter(1, 2) // nope
-    console.log(softplay.total())
     softplay.enter(2, 2)
-    console.log(softplay.total())
     softplay.leave(1, 0) // nope
-    console.log("no change to prior line?\n", softplay.total())
     softplay.enter(0, 1) // nope
-    console.log("no change to prior line?\n", softplay.total())
     softplay.enter(1, 1)
-    console.log(softplay.total())
     softplay.leave(3, 3)
-    console.log(softplay.total())
 
     expect(softplay.occupancy()).toEqual({adults: 0, children: 0})
     expect(softplay.total()).toEqual({adults: 3, children: 3})
