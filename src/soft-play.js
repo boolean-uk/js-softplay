@@ -33,7 +33,6 @@ function leave(numAdults, numChildren) {
   }
   adults -= numAdults
   children -= numChildren
-
   return true
 }
 
