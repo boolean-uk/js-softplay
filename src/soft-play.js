@@ -18,8 +18,8 @@ function enter(numAdults, numChildren) {
     adults = numAdults + adults
     children = numChildren + children
 
-    totalAdult = numAdults + adults
-    totalChildren = numChildren + children
+    totalAdult = numAdults + totalAdult
+    totalChildren = numChildren + totalChildren
     return true
   }
 }
@@ -44,11 +44,11 @@ function leave(numAdults, numChildren) {
 function total() {
   return { adults: totalAdult, children: totalChildren }
 }
-// enter(2, 2)
-// leave(3, 3)
-// enter(1, 1)
-// leave(1, 1)
-// enter(4, 4)
+// enter(5, 5)
+// leave(5, 5)
+// enter(5, 5)
+// leave(5, 5)
+// enter(5, 5)
 // leave(5, 5)
 
 // console.log(occupancy())
