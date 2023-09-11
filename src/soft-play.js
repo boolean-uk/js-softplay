@@ -13,7 +13,7 @@ let numChildren = 0;
 // here is what the object of the softballCenter looks like
 let softballCenter = {
   "adults": numAdults,
-  "children": numChildren,
+  "children": numChildren
 }
 
 // here's the tracker that tracks the total
@@ -26,7 +26,7 @@ let softballCenterTotal = {
 const occupancy = (() => softballCenter)
 const total = (() => softballCenterTotal)
 
-//adding shit so i can easily reset them – not
+//adding shit so i can easily reset them – not necessarily used
 const resetOccupancy = (() => {
   softballCenter.adults = 0,
   softballCenter.children = 0
@@ -51,11 +51,6 @@ enter = (num1, num2) => {
     return false
   }
 }
-
-// what if we add 2 adults and 1 child
-enter(2, 1)
-// console.log("softball center after using the variable that stores the function to add a number of adults", occupancy())
-// console.log("occupancy:", occupancy(), "total:", totalCount())
 
 leave = (num1, num2) => {
   if (num1 >= num2 && softballCenter.adults - num1 >= softballCenter.children - num2) {
