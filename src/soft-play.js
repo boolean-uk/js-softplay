@@ -6,10 +6,6 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
-function counter (personType, changeAmount) 
-
-
-
 function enter(numAdults, numChildren) {
 
   //compare numAults to numChildren
@@ -17,9 +13,12 @@ function enter(numAdults, numChildren) {
 
   // if true
     // add some amount to numAdults & numChildren
+
+  adults += numAdults
+  children += numChildren
 }
 
-console.log(enter(adults, children));
+// console.log(enter(adults, children));u
 
 
 function leave(numAdults, numChildren) {
@@ -31,6 +30,9 @@ function leave(numAdults, numChildren) {
   // numAdults && numChildren currently in the soft play
  
   //
+
+  adults -= numAdults
+  children -= numChildren
 }
 
 function occupancy() {
