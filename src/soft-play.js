@@ -17,18 +17,11 @@ const enter = (numAdults, numChildren) => {
   if (numAdults < numChildren) {
     return false
   } else {
-    for (let i = 0; numAdults > adults; i++) {
-      adults = i
-    }
-    for (let i = 0; numChildren > children; i++) {
-      children = i
-    }
-    for (let i = 0; numAdults > totalAdults; i++) {
-      adults = i
-    }
-    for (let i = 0; numChildren > totalAdults; i++) {
-      children = i
-    }
+    adults += numAdults
+    children += numChildren
+    
+    totalAdults += numAdults
+    totalChildren += numChildren
     return true
   }
 }
@@ -44,8 +37,6 @@ const leave = (numAdults, numChildren) => {
     return true
   }
 }
-
-
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
