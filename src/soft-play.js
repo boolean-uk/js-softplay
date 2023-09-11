@@ -6,11 +6,16 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+let totalAdult = 0
+let totalChildren = 0
+
 function enter(numAdults, numChildren) {
   let validInput = false
   if (numAdults >= numChildren) {
     adults += numAdults
     children += numChildren
+    totalAdult += numAdults
+    totalChildren += numChildren
     validInput = true
   }
   return validInput
@@ -40,9 +45,19 @@ function occupancy() {
   }
 }
 
+function total () {
+  return{ 
+    adults: totalAdult,
+    children: totalChildren 
+  }
+}
+
+
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
