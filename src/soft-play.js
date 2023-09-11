@@ -6,7 +6,15 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+function occupancy() {
+  return { adults: adults, children: children }
+}
 
+let totalAdults = 0
+let totalChildren = 0
+function total() {
+  return { adults: totalAdults, children: totalChildren }
+}
 
 function enter(numAdults, numChildren) {
   if (numAdults < numChildren) {
@@ -27,16 +35,6 @@ function leave(numAdults, numChildren) {
   children -= numChildren
 
   return true
-}
-
-function occupancy() {
-  return { adults: adults, children: children }
-}
-
-let totalAdults = 0
-let totalChildren = 0
-function total() {
-  return { adults: totalAdults, children: totalChildren }
 }
 
 // TODO: Change the undefined values below to the name of your functions
