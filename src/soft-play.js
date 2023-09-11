@@ -28,7 +28,9 @@ function enter(numAdults, numChildren) {
 }
 
 function leave(numAdults, numChildren) {
-  if (numAdults < numChildren || adults - numAdults < children - numChildren) {
+  const futureAdults = adults - numAdults
+  const futureChildren = children - numChildren
+  if (numAdults < numChildren || futureAdults < futureChildren || futureAdults < 0 || futureChildren < 0) {
     return false
   }
   adults -= numAdults
