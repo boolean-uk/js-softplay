@@ -7,48 +7,42 @@ let children = 0
 // Start with the occupancy function.
 
 function enter(numAdults, numChildren) {
-  const validInput = false
+  let validInput = false
   if (numAdults >= numChildren) {
     adults += numAdults
     children += numChildren
-    return `added ${numAdults} adults and ${numChildren} children to the playpen`
-  } else return validInput
+    validInput = true
+  }
+  return validInput
 }
-
-console.log(enter(2, 2))
-console.log('adults :>> ', adults)
-console.log('children :>> ', children)
 
 function leave(numAdults, numChildren) {
-  // numchildren <= numAdults
-
-  //
-
-  //numAdults + numChildren leaving shouldn't be a > number
-  // numAdults && numChildren currently in the soft play
-
-  //
-  const validInput = false
-if (numAdults >= numChildren){
-  adults -= numAdults
-  children -= numChildren
-return ` Removed ${numAdults} adults and ${numChildren} children when leaving the soft play area`
-}else return validInput
+  let validInput = false
+  const checkAdults = adults - numAdults
+  const checkChildren = children - numChildren
+  if (
+    numAdults <= occupancy().adults && // Case 4
+    numChildren <= occupancy().children && // Case 4
+    numAdults >= numChildren && // Case 1, Case 3
+    checkAdults >= checkChildren // Case 2
+  ) {
+    adults -= numAdults
+    children -= numChildren
+    validInput = true
+  }
+  return validInput
 }
-console.log(leave(3, 3))
-console.log('adults', adults, 'children', children)
-
-
 
 function occupancy() {
-  return  {
-  adults: adults,
-  children: children
+  return {
+    adults: adults,
+    children: children
   }
 }
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
