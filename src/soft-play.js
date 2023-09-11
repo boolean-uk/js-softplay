@@ -30,8 +30,10 @@ function leave(numAdults, numChildren) {
   if (children < numChildren || adults < numAdults) {
     return false
   }
-  children = children - numChildren
-  adults = adults - numAdults
+  children -= numChildren
+  // children = children - numChildren
+  adults -= numAdults
+  // adults adults - numChildren
   return true
 }
 function occupancy() {
