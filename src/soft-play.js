@@ -7,28 +7,26 @@ let children = 0
 // Start with the occupancy function.
 
 function enter(numAdults, numChildren) {
-
-  //compare numAults to numChildren
-    // return false if numChildren > numAdults
-
-  // if true
-    // add some amount to numAdults & numChildren
-
-  adults += numAdults
-  children += numChildren
+  const validInput = false
+  if (numAdults >= numChildren) {
+    adults += numAdults
+    children += numChildren
+    return `added ${numAdults} adults and ${numChildren} children to the playpen`
+  } else return validInput
 }
 
-// console.log(enter(adults, children));u
-
+console.log(enter(2, 2))
+console.log('adults :>> ', adults)
+console.log('children :>> ', children)
 
 function leave(numAdults, numChildren) {
-  // numchildren <= numAdults 
+  // numchildren <= numAdults
 
   //
-  
-  //numAdults + numChildren leaving shouldn't be a > number 
+
+  //numAdults + numChildren leaving shouldn't be a > number
   // numAdults && numChildren currently in the soft play
- 
+
   //
 
   adults -= numAdults
@@ -36,7 +34,10 @@ function leave(numAdults, numChildren) {
 }
 
 function occupancy() {
-  return result
+  return {
+    adults: adults,
+    children: children
+  }
 }
 
 // TODO: Change the undefined values below to the name of your functions
