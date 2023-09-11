@@ -30,13 +30,23 @@ function leave(numAdults, numChildren) {
   // numAdults && numChildren currently in the soft play
  
   //
-
+  const validInput = false
+if (numAdults >= numChildren){
   adults -= numAdults
   children -= numChildren
+return ` Removed ${numAdults} adults and ${numChildren} children when leaving the soft play area`
+}else return validInput
 }
+console.log(leave(3, 3))
+console.log('adults', adults, 'children', children)
+
+
 
 function occupancy() {
-  return result
+  return  {
+  adults: adults,
+  children: children
+  }
 }
 
 // TODO: Change the undefined values below to the name of your functions
