@@ -6,9 +6,56 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+let totalAdult = 0
+let totalChildren = 0
+
+function enter(numAdults, numChildren) {
+  let validInput = false
+  if (numAdults >= numChildren) {
+    adults += numAdults
+    children += numChildren
+    totalAdult += numAdults
+    totalChildren += numChildren
+    validInput = true
+  }
+  return validInput
+}
+
+function leave(numAdults, numChildren) {
+  let validInput = false
+  const checkAdults = adults - numAdults
+  const checkChildren = children - numChildren
+  if (
+    numAdults <= occupancy().adults && // Case 4
+    numChildren <= occupancy().children && // Case 4
+    numAdults >= numChildren && // Case 1, Case 3
+    checkAdults >= checkChildren // Case 2
+  ) {
+    adults -= numAdults
+    children -= numChildren
+    validInput = true
+  }
+  return validInput
+}
+
+function occupancy() {
+  return {
+    adults: adults,
+    children: children
+  }
+}
+
+function total() {
+  return {
+    adults: totalAdult,
+    children: totalChildren
+  }
+}
+
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy,
+  total: total
 }
