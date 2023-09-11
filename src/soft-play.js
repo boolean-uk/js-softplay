@@ -12,25 +12,53 @@ function occupancy() {
   }
 }
 
-
 function enter(numAdults, numChildren) {
   let check = false
-  if (numAdults >= 1){
+  if (numAdults >= numChildren) {
     check = true
     adults += numAdults
     children += numChildren
   }
+  return check
 }
-    
-enter(2, 2)
+
+// enter(2, 2)
+
+console.log(enter(2, 2))
+
 console.log(occupancy())
 
+function leave(numAdults, numChildren) {
+  let check = false
 
+  if (
+    numAdults >= numChildren &&
+    numAdults <= adults &&
+    numChildren <= children
+  ) {
+    const adultQuantityCheck = adults - numAdults
+    const childrenQuantityCheck = children - numChildren
 
+    if (
+      adultQuantityCheck >= 0 &&
+      childrenQuantityCheck >= 0 &&
+      adultQuantityCheck >= childrenQuantityCheck
+    ) {
+      check = true
+      adults -= numAdults
+      children -= numChildren
+    }
+  }
+
+  return check
+}
+
+console.log('q3', leave(2, 2))
+console.log(occupancy())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: undefined,
-  leave: undefined,
-  occupancy: undefined
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
