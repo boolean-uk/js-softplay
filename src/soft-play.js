@@ -67,19 +67,6 @@ leave = (num1, num2) => {
   }
 }
 
-leave(1, 0)
-// console.log("softball center after having one adult leaving")
-// console.log("occupancy:", occupancy(), "total:", totalCount())
-
-// try having the child leave on its own
-leave(0, 1)
-// console.log("softball center after the child tried to leave")
-// console.log("occupancy:", occupancy(), "total:", totalCount())
-
-leave(1,1)
-// console.log("after the child leaves with an adult")
-// console.log("occupancy:", occupancy(), "total:", totalCount())
-
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
