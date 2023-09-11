@@ -1,16 +1,14 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdult = 0
+let totalChildren = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
 function occupancy() {
   return { adults: adults, children: children }
-}
-
-function total() {
-  return { Adults: totalAdult, Children: totalChildren }
 }
 
 function enter(numAdults, numChildren) {
@@ -22,12 +20,9 @@ function enter(numAdults, numChildren) {
 
     totalAdult = numAdults + adults
     totalChildren = numChildren + children
-
     return true
   }
 }
-// enter(10, 10)
-// console.log(occupancy())
 
 function leave(numAdults, numChildren) {
   const potentialChildren = children - numChildren
@@ -46,9 +41,9 @@ function leave(numAdults, numChildren) {
   return true
 }
 
-// leave(2, 2)
-// console.log(occupancy())
-
+function total() {
+  return { adults: totalAdult, children: totalChildren }
+}
 // enter(2, 2)
 // leave(3, 3)
 // enter(1, 1)
@@ -63,5 +58,6 @@ function leave(numAdults, numChildren) {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
