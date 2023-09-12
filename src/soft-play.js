@@ -47,7 +47,7 @@ const leave = (numAdults, numChildren) => {
 
 // total() This function should return an object with the same structure as occupancy,
 // but the values should be the all-time totals showing how many adults and children have entered the soft play center
-const total = () => peopleInside
+const total = () => peopleVisiting
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
