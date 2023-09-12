@@ -6,13 +6,19 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+// TOTAL NUMBER ENTERING TRACKER
+let totalAdultsIn = 0
+let totalChildrenIn = 0
+
+const total = () => {
+  return { adults: totalAdultsIn, children: totalChildrenIn }
+}
+
 // OCCUPANCY
 function occupancy() {
-  const trackerObject = {}
-  trackerObject.adults = adults
-  trackerObject.children = children
-  return trackerObject
+  return { adults: adults, children: children }
 }
+
 // console.log('Occupancy before:', occupancy())
 
 // ENTRY
@@ -22,10 +28,12 @@ function enter(numAdults, numChildren) {
   }
   adults += numAdults
   children += numChildren
+  totalAdultsIn += numAdults
+  totalChildrenIn += numChildren
   return true
 }
 
-// console.log(enter(10, 8))
+// enter(10, 8)
 // console.log('Adults after entering:', adults)
 // console.log('Children after entering:', children)
 
@@ -44,16 +52,18 @@ function leave(numAdults, numChildren) {
   return true
 }
 
-// console.log(leave(3, 2))
+// leave(3, 2)
 // console.log('Adults after leaving:', adults)
 // console.log('Children after leaving:', children)
 
-// // FINAL TEST
+// FINAL TESTS
 // console.log('Occupancy after:', occupancy())
+// console.log('Total tracker:', total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
