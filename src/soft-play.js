@@ -19,8 +19,6 @@ function occupancy() {
   return { adults: adults, children: children }
 }
 
-// console.log('Occupancy before:', occupancy())
-
 // ENTRY
 function enter(numAdults, numChildren) {
   if (numAdults < numChildren) {
@@ -32,10 +30,6 @@ function enter(numAdults, numChildren) {
   totalChildrenIn += numChildren
   return true
 }
-
-// enter(10, 8)
-// console.log('Adults after entering:', adults)
-// console.log('Children after entering:', children)
 
 // EXIT
 function leave(numAdults, numChildren) {
@@ -51,14 +45,6 @@ function leave(numAdults, numChildren) {
   children -= numChildren
   return true
 }
-
-// leave(3, 2)
-// console.log('Adults after leaving:', adults)
-// console.log('Children after leaving:', children)
-
-// FINAL TESTS
-// console.log('Occupancy after:', occupancy())
-// console.log('Total tracker:', total())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
