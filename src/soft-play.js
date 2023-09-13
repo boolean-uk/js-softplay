@@ -5,51 +5,55 @@ let children = 0
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
+const occupants = {}
+let childrenLeft = 0
+let adultsLeft = 0
+
+
+
 function occupancy() {
-  return {
-adults: adults, children: children }
+  occupants.adults = adults
+  occupants.children = children
+  return occupants
 }
 
 function enter(numAdults, numChildren) {
   if (numAdults < numChildren) {
     return false
-} else {
-  adults = numAdults + adults
-  children = numChildren + children
-}
-return true
-}
-
-//enter(10,.10)
-//console.log(occupancy())
-
-function leave(numAdults, numChildren) {
-
-  const potentialChildren = children - numChildren
-  const potentialAdults = adults - numAdults
-  if(
-    numAdults < numChildren 
-    potentialAdults < potentialChildren 
-    potentialChildren < 0 ||
-    potentialAdults < 0
-  ) {
-    //console.log('Failed, No adults, or more kids inside')
-    return false
   }
-  adults = adults - numAdults
-  children = children - numChildren
+  children += numChildren
+  adults += numAdults
+  // returns true
   return true
 }
 
-leave(1, 2)
-console.log(occupancy())
 
-function total() {
-  return {
-    adultsOverall: adults,
-    childrenOverall: children
+
+const leave = (numAdults, numChildren) => {
+  childrenLeft = children - numChildren
+  adultsLeft = adults - numAdults
+  if (numAdults < numChildren) {
+    return false
   }
+  if (adultsLeft < childrenLeft) {
+    return false
+  }
+  if (children < numChildren) {
+    return false
+  }
+  if (adults < numAdults) {
+    return false
+  }
+  children = children - numChildren
+  adults = adults - numAdults
+  return true
 }
+//enter(10,.10)
+//console.log(occupancy())
+
+
+    //console.log('Failed, No adults, or more kids inside')
+    
 
 
 
