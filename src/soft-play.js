@@ -6,35 +6,34 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
-// first we initialize the variables that keep track of the adults and kids
-let numAdults = 0;
-let numChildren = 0;
-
 // here is what the object of the softballCenter looks like
-let softballCenter = {
-  "adults": numAdults,
-  "children": numChildren
-}
-
-// here's the tracker that tracks the total
-let softballCenterTotal = {
-  "adults": 0,
-  "children": 0,
+new softballCenter = (sport) = {
+  this.id: 1;
+  this.sport = sport;
+  this.currentPresence = {
+    adults: adults,
+    children: children
+  },
+  this.totalTally = {
+    adults: 0,
+    children: 0
+  }
 }
 
 // function that basically only prints out the current state of the softball-Center-object
-const occupancy = (() => softballCenter)
-const total = (() => softballCenterTotal)
+// ToDo: only give back the present Adults and present Children
+const occupancy = (() => softballCenter.currentPresence)
+const total = (() => softballCenter.totalTally)
 
 //adding shit so i can easily reset them – not necessarily used
 const resetOccupancy = (() => {
-  softballCenter.adults = 0,
-  softballCenter.children = 0
+  softballCenter.currentPresence.adults = 0,
+  softballCenter.currentPresence.children = 0
 })
 
 const resetTotalCount = (() => {
-  softballCenterTotal.adults = 0,
-  softballCenterTotal.children = 0
+  softballCenter.totalTally.adults = 0,
+  softballCenterTotal.totalTally.children = 0
 })
 
 enter = (num1, num2) => {
@@ -64,5 +63,5 @@ module.exports = {
   enter: enter,
   leave: leave,
   occupancy: occupancy,
-  total: total,
+  total: total
 }
