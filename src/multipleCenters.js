@@ -5,8 +5,9 @@ const centers = []
 function center(sport) {
   this.id = centers.length
   this.sport = sport
+  this.enteringCheck = (adultsEntering, childrenEntering) => adultsEntering >= childrenEntering ? true : false
   this.enter = (adultsEntering, childrenEntering) => {
-    if (adultsEntering >= childrenEntering) {
+    if (this.enteringCheck(adultsEntering, childrenEntering)) {
       this.currentPresence.adults += adultsEntering
       this.currentPresence.children += childrenEntering
       this.totalTally.adults += adultsEntering
@@ -16,8 +17,9 @@ function center(sport) {
       return false
     }
   }
+  this.leavingCheck = (adultsLeaving, childrenLeaving) => (adultsLeaving >= childrenLeaving && this.currentPresence.adults - childrenLeaving >= this.currentPresence.children - childrenLeaving) ? true : false
   this.leave = (adultsLeaving, childrenLeaving) => {
-    if (adultsLeaving >= childrenLeaving && this.currentPresence.adults - childrenLeaving >= this.currentPresence.children - childrenLeaving) {
+    if (this.leavingCheck(adultsLeaving, childrenLeaving)) {
       this.currentPresence.adults -= adultsLeaving
       this.currentPresence.children -= childrenLeaving
       return true
