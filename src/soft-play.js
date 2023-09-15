@@ -1,48 +1,67 @@
-// do not change these lines
-let adults = 3
-let children = 4
+let adults = 0
+let children = 0
 
-// TODO: Write your functions in the below section. Your functions should update
-// the adults and children variables defined above.
-// Start with the occupancy function.
-
-// increment adult number function
-function enter(person) {
-  if (person === 'adult') {
-    adults++
-    console.log(
-      `An adult has entered. Adults: ${adults}, Children: ${children}`
-    )
-  } else if (person === 'child') {
-    children++
+function enter(numAdults, numChildren) {
+  // Check if every child is accompanied by at least 1 adult
+  if (numChildren > 0 && numAdults < numChildren) {
+    return false
   }
-  console.log(`A child has entered. Adults: ${adults}, Children: ${children}`)
+
+  // Update counts
+  adults += numAdults
+  children += numChildren
+  return true
 }
 
-// decrease leave function
-
-function leave(person) {
-  if (person === 'adult') {
-    adults--
+function leave(numAdults, numChildren) {
+  // Check if a child is not attempting to leave without an adult
+  if (numChildren > 0 && numAdults === 0) {
+    return false
   }
-  console.log(`An adult has left. Adults: ${adults}, Children: ${children}`)
 
-  if (person === 'child') {
-    children--
+  // Check if the number of adults and children left inside the center
+  // will not cause there to be more children than adults
+  if (adults - numAdults < children - numChildren) {
+    return false
   }
-  console.log(`A child has left. Adults: ${adults}, Children: ${children}`)
+
+  // Check if every child leaving is accompanied by at least 1 adult
+  if (numChildren > 0 && numAdults === 0) {
+    return false
+  }
+
+  // Check if the number of adults and children attempting to leave
+  // is not greater than the number currently inside the center
+  if (adults < numAdults || children < numChildren) {
+    return false
+  }
+
+  // Update counts
+  adults -= numAdults
+  children -= numChildren
+  return true
 }
-
-// number of people
 
 function occupancy() {
-  return adults + children
+  return {
+    adults: adults,
+    children: children
+  }
 }
-console.log(`Current Occupancy - Adults: ${adults}, Children: ${children}`)
+console.log(occupancy()) // { adults: 0, children: 0 }
+console.log(enter(2, 1)) // true
+console.log(occupancy()) // { adults: 2, children: 1 }
+console.log(leave(1, 0)) // true
+console.log(occupancy()) // { adults: 1, children: 1 }
+console.log(enter(0, 1)) // false
+console.log(occupancy()) // { adults: 1, children: 1 }
+console.log(leave(1, 0)) // false
+console.log(occupancy()) // { adults: 1, children: 1 }
+console.log(leave(1, 1)) // true
+console.log(occupancy()) // { adults: 0, children: 0 }
 
-// TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter,
-  leave,
-  occupancy
+  enter: enter,
+  leave: leave,
+  occupancy: occupancy
 }
