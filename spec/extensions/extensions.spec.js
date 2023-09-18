@@ -1,3 +1,5 @@
+const { occupancy } = require('../../src/soft-play.js');
+
 describe("Soft Play Extensions", () => {
   let softplay
 
