@@ -1,67 +1,44 @@
+// do not change these lines
 let adults = 0
 let children = 0
+let totalChidren = 0
+let totalAdults = 0
 
-function enter(numAdults, numChildren) {
-  // Check if every child is accompanied by at least 1 adult
-  if (numChildren > 0 && numAdults < numChildren) {
+// TODO: Write your functions in the below section. Your functions should update
+// the adults and children variables defined above.
+// Start with the occupancy function.
+const enter = (numAdults, numChildren) => {
+  if (numChildren > numAdults) {
     return false
-  }
+  } else {
+    adults += numAdults
+    children += numChildren
+    totalAdults += numAdults
+    totalChidren += numChildren
 
-  // Update counts
-  adults += numAdults
-  children += numChildren
-  return true
+    return true
+  }
 }
 
-function leave(numAdults, numChildren) {
-  // Check if a child is not attempting to leave without an adult
-  if (numChildren > 0 && numAdults === 0) {
+const leave = (numAdults, numChildren) => {
+  if (numChildren > numAdults || adults - numAdults < children - numChildren) {
     return false
-  }
+  } else {
+    adults -= numAdults
+    children -= numChildren
 
-  // Check if the number of adults and children left inside the center
-  // will not cause there to be more children than adults
-  if (adults - numAdults < children - numChildren) {
-    return false
+    return true
   }
-
-  // Check if every child leaving is accompanied by at least 1 adult
-  if (numChildren > 0 && numAdults === 0) {
-    return false
-  }
-
-  // Check if the number of adults and children attempting to leave
-  // is not greater than the number currently inside the center
-  if (adults < numAdults || children < numChildren) {
-    return false
-  }
-
-  // Update counts
-  adults -= numAdults
-  children -= numChildren
-  return true
 }
 
-function occupancy() {
-  return {
-    adults: adults,
-    children: children
-  }
-}
-console.log(occupancy()) // { adults: 0, children: 0 }
-console.log(enter(2, 1)) // true
-console.log(occupancy()) // { adults: 2, children: 1 }
-console.log(leave(1, 0)) // true
-console.log(occupancy()) // { adults: 1, children: 1 }
-console.log(enter(0, 1)) // false
-console.log(occupancy()) // { adults: 1, children: 1 }
-console.log(leave(1, 0)) // false
-console.log(occupancy()) // { adults: 1, children: 1 }
-console.log(leave(1, 1)) // true
-console.log(occupancy()) // { adults: 0, children: 0 }
+const total = () => ({ adults: totalAdults, children: totalChidren })
 
+const occupancy = () => ({ adults: adults, children: children })
+
+// TODO: Change the undefined values below to the name of your functions
 module.exports = {
-  enter: enter,
-  leave: leave,
-  occupancy: occupancy
+  enter,
+  leave,
+  occupancy,
+  total
 }
