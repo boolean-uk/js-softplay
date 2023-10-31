@@ -2,8 +2,8 @@ describe("Soft Play", () => {
   let softplay
 
   beforeEach(() => {
-    delete require.cache[require.resolve('../src/soft-play.js')];
-    softplay = require('../src/soft-play.js')
+    delete require.cache[require.resolve('../src/SoftPlay.js')];
+    softplay = require('../src/SoftPlay.js')
   })
 
   it("Initial state is empty", function() {
