@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let totalAdults = 0
+let totalChildren = 0
 
 function enter(numAdults, numChildren) {
   if (numChildren > numAdults) {
@@ -8,6 +10,8 @@ function enter(numAdults, numChildren) {
   }
   adults += numAdults
   children += numChildren
+  totalAdults += numAdults
+  totalChildren += numChildren
   return true
 }
 
@@ -33,8 +37,13 @@ function occupancy() {
   return { adults: adults, children: children }
 }
 
+function total() {
+  return { adults: totalAdults, children: totalChildren }
+}
+
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
