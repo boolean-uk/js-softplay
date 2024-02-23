@@ -1,6 +1,8 @@
 // do not change these lines
 let adults = 0
 let children = 0
+let adultsTotal = 0
+let childrenTotal = 0
 
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
@@ -16,6 +18,8 @@ const enter = (numAdults, numChildren) => {
   adults += numAdults
   children += numChildren
 
+  adultsTotal += numAdults
+  childrenTotal += numChildren
  return true
 }
 
@@ -37,10 +41,11 @@ const leave = (numAdults, numChildren) => {
 //Occupancy object output function
 
 const occupancy = () => {
-adults = adults
-children = children
-
 return {adults: adults, children: children}
+}
+
+const total = () => {
+return {adults: adultsTotal, children: childrenTotal}
 }
 
 
@@ -48,5 +53,6 @@ return {adults: adults, children: children}
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
