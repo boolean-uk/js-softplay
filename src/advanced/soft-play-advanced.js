@@ -9,8 +9,8 @@
 // Start with the occupancy function.
 class Softplay {
   constructor(entranceRatio, occupancyRatio) {
-    this.entranceRatio = entranceRatio
-    this.occupancyRatio = occupancyRatio
+    this.entranceRatio = entranceRatio // Add as adult:child
+    this.occupancyRatio = occupancyRatio // Add as adult:child
     this.adults = 0
     this.children = 0
     this.adultsLeaving = 0
@@ -23,18 +23,20 @@ class Softplay {
 }
 // Example object to show the configuration for other softplays to be added to the platform
 
-const softplay = {
-  entranceRatio: '1:1',
-  occupancyRatio: '1:1',
-  adults: 0,
-  children: 0,
-  adultsLeaving: 0,
-  childrenLeaving: 0,
-  occupancyValueTotal: {
-    adults: 0,
-    children: 0
-  }
-}
+// softplay = {
+//   entranceRatio: '1:1',
+//   occupancyRatio: '1:1',
+//   adults: 0,
+//   children: 0,
+//   adultsLeaving: 0,
+//   childrenLeaving: 0,
+//   occupancyValueTotal: {
+//     adults: 0,
+//     children: 0
+//   }
+// }
+
+const softplay = new Softplay('1:1', '1:1')
 
 const softplay2 = new Softplay('1:1', '1:1')
 
@@ -82,7 +84,7 @@ function leave(numAdults, numChildren, softPlayCentre) {
     softPlayCentre.occupancyRatio.split(':')[1] === 0
   ) {
     throw new Error(
-      'Your softplay entrance ration is not configured correctly, please ensure that neither value is 0'
+      'Your softplay entrance ratio is not configured correctly, please ensure that neither value is 0'
     )
   }
   if (
