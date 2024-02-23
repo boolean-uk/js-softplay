@@ -51,35 +51,6 @@ function total() {
   }
 }
 
-console.log(total())
-
-// function enter(numAdults, numChildren) {
-//   console.log(numAdults, numChildren)
-//   if (numChildren <= numAdults) {
-//     adults += numAdults
-//     children += numChildren
-//   } else {
-//     return false
-//   }
-//   return true
-// }
-
-// function leave(numAdults, numChildren) {
-//   console.log(numAdults, numChildren)
-//   if (
-//     numChildren <= numAdults &&
-//     numAdults < adults &&
-//     numChildren < children &&
-//     adults - numAdults >= children - numChildren
-//   ) {
-//     adults -= numAdults
-//     children -= numChildren
-//   } else {
-//     return false
-//   }
-//   return true
-// }
-
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
