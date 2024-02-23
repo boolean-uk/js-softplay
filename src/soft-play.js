@@ -7,37 +7,37 @@ let children = 0
 // Start with the occupancy function.
 
 const enter = (numAdults, numChildren) => {
-  adults += numAdults;
-  children += numChildren;
-  return true;
-};
+  adults += numAdults
+  children += numChildren
+  return true
+}
 
 const leave = (numAdults, numChildren) => {
   if (children >= numChildren) {
-    adults -= numAdults;
-    children -= numChildren;
-    return true;
+    adults -= numAdults
+    children -= numChildren
+    return true
   } else {
-    return false;
+    return false
   }
-};
+}
 
 const occupancy = () => {
-  return { adults, children };
-};
+  return { adults, children }
+}
 
 // Example usage:
-const result = enter(2, 3);
-console.log(result);
-console.log('Current Occupancy:', occupancy());
+const result = enter(2, 3)
+console.log(result)
+console.log('Current Occupancy:', occupancy())
 
-const result1 = leave(1, 1);
-console.log(result1);
-console.log('Current Occupancy:', occupancy());
+const result1 = leave(1, 1)
+console.log(result1)
+console.log('Current Occupancy:', occupancy())
 
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter,
   leave,
   occupancy
-};
+}
