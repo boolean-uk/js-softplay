@@ -12,11 +12,14 @@ function occupancy() {
   return currentOccupancy
 }
 // console.log(occupancy())
-
+let totalAdults = 0
+let totalChildren = 0
 const enter = function (numAdults, numChildren) {
   if (numAdults >= numChildren) {
     adults += numAdults
     children += numChildren
+    totalAdults += numAdults
+    totalChildren += numChildren
     return true
   } else {
     return false
@@ -38,6 +41,24 @@ const leave = (numAdults, numChildren) => {
     return true
   }
 }
+
+// enter(22, 21)
+// enter(2, 1)
+// enter(2, 1)
+// enter(2, 1)
+// leave(4, 2)
+// total(enter)
+
+function total() {
+  const totalOccupancy = {}
+  totalOccupancy.adults = totalAdults
+  totalOccupancy.children = totalChildren
+
+  return totalOccupancy
+}
+// console.log("Cureent",occupancy());
+// console.log("Total",total());
+// console.log(total(enter(numAdults,0),enter(numChildren,0),enter))
 // console.log(leave(1, 11))
 // console.log(adults)
 // console.log(children)
@@ -47,5 +68,6 @@ const leave = (numAdults, numChildren) => {
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
