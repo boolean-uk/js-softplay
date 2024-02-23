@@ -11,11 +11,10 @@ function occupancy() {
   const occupancyValue = {}
   occupancyValue.adults = adults
   occupancyValue.children = children
-  if (occupancyValue.adults === undefined ||occupancyValue.adults === '') {
+  if (occupancyValue.adults === undefined || occupancyValue.adults === '') {
     occupancyValue.adults = 0
-    
   }
-  if (occupancyValue.children === undefined ||occupancyValue.children === ''){
+  if (occupancyValue.children === undefined || occupancyValue.children === '') {
     occupancyValue.children = 0
   }
   return occupancyValue
@@ -30,17 +29,16 @@ function enter(numAdults, numChildren) {
   return true
 }
 function leave(numAdults, numChildren) {
-  
   if (
-    numAdults < numChildren || 
-    numAdults > adults || 
-    numChildren > children || 
+    numAdults < numChildren ||
+    numAdults > adults ||
+    numChildren > children ||
     adults - numAdults < children - numChildren ||
     numAdults === '' ||
     numChildren === '' ||
     numAdults === undefined ||
-    numChildren === undefined 
-    ) {
+    numChildren === undefined
+  ) {
     return false
   }
   adults -= numAdults
@@ -51,11 +49,16 @@ function leave(numAdults, numChildren) {
 }
 const occupancyValueTotal = {}
 function total() {
-   if (occupancyValueTotal.adults === undefined ||occupancyValueTotal.adults === '') {
+  if (
+    occupancyValueTotal.adults === undefined ||
+    occupancyValueTotal.adults === ''
+  ) {
     occupancyValueTotal.adults = 0
-    
   }
-  if (occupancyValueTotal.children === undefined ||occupancyValueTotal.children === ''){
+  if (
+    occupancyValueTotal.children === undefined ||
+    occupancyValueTotal.children === ''
+  ) {
     occupancyValueTotal.children = 0
   }
   occupancyValueTotal.adults += adults + adultsLeaving
@@ -67,5 +70,5 @@ module.exports = {
   enter: enter,
   leave: leave,
   occupancy: occupancy,
-  total : total
+  total: total
 }
