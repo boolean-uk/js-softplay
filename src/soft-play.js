@@ -47,16 +47,16 @@ const leave = (numAdults, numChildren) => {
 // enter(2, 1)
 // enter(2, 1)
 // leave(4, 2)
-// total(enter)
+// total()
 
 function total() {
-  const totalOccupancy = {}
-  totalOccupancy.adults = totalAdults
-  totalOccupancy.children = totalChildren
+  const totalEntered = {}
+  totalEntered.adults = totalAdults
+  totalEntered.children = totalChildren
 
-  return totalOccupancy
+  return totalEntered
 }
-// console.log("Cureent",occupancy());
+// console.log("Current",occupancy());
 // console.log("Total",total());
 // console.log(total(enter(numAdults,0),enter(numChildren,0),enter))
 // console.log(leave(1, 11))
