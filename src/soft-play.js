@@ -13,7 +13,7 @@ function occupancy() {
 }
 // console.log(occupancy())
 
-function enter(numAdults, numChildren) {
+const enter = function (numAdults, numChildren) {
   if (numAdults >= numChildren) {
     adults += numAdults
     children += numChildren
@@ -27,7 +27,7 @@ function enter(numAdults, numChildren) {
 // console.log(children)
 // console.log(occupancy())
 
-function leave(numAdults, numChildren) {
+const leave = (numAdults, numChildren) => {
   const adultsIn = adults - numAdults
   const childrenIn = children - numChildren
   if (numAdults < numChildren || adultsIn < childrenIn) {
