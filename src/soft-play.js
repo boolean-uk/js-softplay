@@ -6,18 +6,32 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
+// extension section
+
+let adultsEntered = 0
+let childrenEntered = 0
+
+const total = () => {
+  const obj = {}
+  obj.adults = adultsEntered
+  obj.children = childrenEntered
+
+  return obj
+}
+
+// extension section
+
 const enter = (numAdults, numChildren) => {
   if (numChildren <= numAdults) {
     adults += numAdults
     children += numChildren
+    adultsEntered += numAdults
+    childrenEntered += numChildren
     return true
   } else {
     return false
   }
 }
-
-// enter(2, 1)
-// console.log(adults, children)
 
 const leave = (numAdults, numChildren) => {
   if (numChildren > numAdults) {
@@ -35,9 +49,6 @@ const leave = (numAdults, numChildren) => {
   return true
 }
 
-// leave(0, 1)
-// console.log(adults, children)
-
 const occupancy = () => {
   const obj = {}
   obj.adults = adults
@@ -46,11 +57,10 @@ const occupancy = () => {
   return obj
 }
 
-console.log(occupancy())
-
 // TODO: Change the undefined values below to the name of your functions
 module.exports = {
   enter: enter,
   leave: leave,
-  occupancy: occupancy
+  occupancy: occupancy,
+  total: total
 }
