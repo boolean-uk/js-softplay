@@ -59,7 +59,7 @@ function total() {
 //   return totalEntered
 // }
 
-//// ================== Tests
+// ================== Tests
 
 // enter(28, 21)
 // enter(2, 1)
