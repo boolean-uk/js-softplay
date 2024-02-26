@@ -5,16 +5,24 @@ let children = 0
 // TODO: Write your functions in the below section. Your functions should update
 // the adults and children variables defined above.
 // Start with the occupancy function.
+let allTimeAdults = 0,
+  allTimeChildren = 0
 function enter(nAdults, nChildren) {
   //Every child entering the soft play center is accompanied by at least 1 adult.
   if (nAdults >= nChildren && nChildren >= 1) {
     adults += nAdults
     children += nChildren
+    //
+    allTimeAdults += nAdults
+    allTimeChildren += nChildren
     return true
   } else {
     //Cant enter without a child, or an adult
     return false
   }
+}
+function total() {
+  return { adults: allTimeAdults, children: allTimeChildren }
 }
 
 function leave(nAdults, nChildren) {
@@ -48,5 +56,6 @@ function occupancy() {
 module.exports = {
   enter,
   leave,
-  occupancy
+  occupancy,
+  total
 }
