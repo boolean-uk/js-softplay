@@ -36,7 +36,7 @@ function leave(numAdults, numChildren) {
   ((adults - numAdults) <0 || (children - numChildren) <0) ||
   ((adults - numAdults) < (children - numChildren)) ||
   (numChildren > numAdults)) { 
-      return false
+    return false
   }
   adults -= numAdults
   children -= numChildren
