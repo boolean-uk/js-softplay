@@ -6,54 +6,47 @@ let children = 0
 // the adults and children variables defined above.
 // Start with the occupancy function.
 
-function enter(numAdults, numChildren) {
-  if (numAdults < numChildren) {
-    return false
-  } else {
-    adults = numAdults + adults
-    children = numChildren + children
-  }
-  return true
+const occupancy = () => {
+  return{
+   adults: adults,
+   children: children
+ }
 }
-
-function leave(numAdults, numChildren) {
-  const potentialChildren = children - numChildren
-  const potentialAdults = adults - numAdults
-
-  if (
-    numAdults < numChildren ||
-    potentialAdults < potentialChildren ||
-    potentialChildren < 0 ||
-    potentialAdults < 0
-  ) {
-    console.log("cant proceed sorry ")
-    return false
-  }
-
-  adults -= numAdults
-  children -= numChildren
-  return true
+let totalAdults = 0
+let totalChilren = 0
+const total = () => {
+ return {
+   adults: totalAdults,
+   children: totalChilren
+ }
 }
-
-leave(1, 2)
-
-function occupancy() {
-  return {
-    adults: adults,
-    children: children
-  }
+const enter = (numAdults, numChildren) => {
+ if (numAdults < numChildren) {
+   return false
+ }else{
+   adults += numAdults
+   children += numChildren
+   totalAdults += numAdults
+   totalChilren += numChildren
+   return true
+ }
 }
-
-function total() {
-  return {
-    adultsOverall: adults,
-    childrenOverall: children
-  }
+// console.log(enter(2,2))
+const leave = (numAdults, numChildren) => {
+ if (numAdults < numChildren || adults - numAdults < children - numChildren) {
+   return false
+ } else {
+   adults -= numAdults
+   children -= numChildren
+   return true
+ }
 }
 
 // TODO: Change the undefined values below to the name of your functions
+
 module.exports = {
-  enter: enter,
-  leave: leave,
-  occupancy: occupancy
+ enter: enter,
+ leave: leave,
+ occupancy: occupancy,
+ total : total
 }
